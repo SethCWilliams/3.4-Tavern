@@ -1,9 +1,9 @@
 from django.db import models
+from django.utils import timezone
 
 class Lunch(models.Model):
-    nickname = models.CharField(max_length=20)
-    user = models.CharField(max_length=20)
-    date = models.DateTimeField()
+    nickname = models.CharField(max_length=255)
+    date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.nickname
@@ -11,7 +11,9 @@ class Lunch(models.Model):
 
 class Location(models.Model):
     lunch = models.ForeignKey(Lunch, on_delete=models.CASCADE)
-    votes = models.IntegerField()
+    title = models.CharField(max_length=255, default='generic')
+    description = models.TextField(default=True)
+    votes = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.lunch
+        return self.title

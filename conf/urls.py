@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from tavern.views import Home
 
+app_name = 'ta'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Home.as_view())
