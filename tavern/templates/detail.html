@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+    <form class="center" action="{% url 'tavern:vote' vote.id %}" method="post">
+        {% csrf_token %}
+        {% for location in vote.location_set.all %}
+        <label for="Location{{ forloop.counter }}">
+            <h4 class="col">{{ location.title }}</h4>
+        </label>
+
+<div class="center col">
+        Select: <input type="radio" name="location" id="location{{ forloop.counter }}" value="{{ location.id }}">
+    {% endfor %}
+</div>
+<div>
+    </form>
+        <input type="submit" class="btn btn-primary" value="Vote">
+
+
+
+
+</div>
+{% endblock %}

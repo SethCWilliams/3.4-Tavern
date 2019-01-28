@@ -2,16 +2,16 @@
 
 
 {% block content %}
-    <h5><a href="google.com">Create A Poll</a></h5>
-
-    <div class="background">
-        <div>
-           <h4 class="poll">Current Poll</h4>
-            <h6>Place 1</h6>
-            <h6>Place 2</h6>
-            <h6>Place 3</h6>
-            <h6>Place 4</h6>
-            <h6>Place 5</h6>
-        </div>
-    </div>
+    <h6>Welcome to Tavern</h6>
+    {% if latest_lunches %}
+        <ul class="list-group">
+            {# Loop over the latest_contests list and get each contest #}
+            {% for lunch in latest_lunches %}
+                {# We can build a url with the name of our path using the url template tag #}
+                <li class="center link-adjust"><a href="{% url 'tavern:detail' lunch.id %}">{{ lunch.nickname }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="center">No lunch polls. Get some friends.</p>
+    {% endif %}
 {% endblock %}

@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+<ul class="center">
+    {% for location in vote.location_set.all %}
+        <li> {{ location.title }} -- {{ location.votes }} vote{{ location.votes|pluralize }}</li>
+    {% endfor %}
+</ul>
+    <div class="center">
+    <a href="{% url 'tavern:detail' vote.id %}">Vote again?</a>
+    </div>
+{% endblock %}
