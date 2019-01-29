@@ -5,10 +5,14 @@ h1  {
     border-bottom: 2px solid #169895;
     padding-top: 1%;
     padding-bottom: 10px;
+    background-color: white;
+    opacity: .8;
 }
 
 body    {
     margin-top: 15px;
+    background-image: url("avocados.jpg");
+    background-size: cover;
 }
 
 h5  {
@@ -51,8 +55,14 @@ h6  {
     color: white;
 }
 
+.background ::before {
+    background-color: white;
+    z-index: 15;
+}
+
 .link-adjust {
     text-decoration: none;
+    padding-top: 10%;
     padding-bottom: 10%;
     background-color: rgba(255,255,255,.4);
     color: black;
@@ -65,4 +75,9 @@ a {
 
 .block {
     display: inline-block;
+}
+
+.blue {
+    color: #FA5D7C;
+    font-weight: bold;
 }
